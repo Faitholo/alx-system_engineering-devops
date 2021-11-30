@@ -6,5 +6,5 @@ a=0
 while [ $a -lt 11 ]
 do
   echo "Best School"
-  a=`expr $a + 1`
+  a++
 done

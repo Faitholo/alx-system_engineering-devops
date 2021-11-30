@@ -1,9 +1,10 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 # Displays 'Best School' in stdout 10 times using a while loop
 
-c=1
-while [ $c -le 10 ]
+index=0
+
+while [ $index -lt 10 ]
 do
-	echo "Best School $c times"
-	(( c++ ))
+  echo "Best School"
+  ((index++))
 done

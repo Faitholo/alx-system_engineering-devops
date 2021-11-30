@@ -3,7 +3,7 @@
 
 index=0
 
-while [ $index -lt 10 ]
+while [ $index -lt 11 ]
 do
   echo "Best School"
   ((index++))

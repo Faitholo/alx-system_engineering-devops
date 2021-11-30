@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
 # Displays 'Best School' in stdout 10 times using a while loop
 
-END=10
-x=$end
-while [ $x -gt 0 ];
+x=1
+while [ $x -le 10 ]
 do
-  echo Best School
-  x=$(($x-1))
+  echo "Best School $x times"
+  x=$(( $x + 1 ))
 done
   

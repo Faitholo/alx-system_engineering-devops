@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#install ngix and have a file that returns the string "Hello World inside
+redir="\\\tlocation /redirect_me {\n\t\t return 301 Moved Permanently;\n\t}\n"
+
+sudo apt-get update
+sudo apt-get install nginx -y
+echo "Hello World" | sudo tee /usr/share/nginx/html/index.html
+sudo sed -i "30i $redir" /etc/nginx/sites-available/default
+sudo service nginx start

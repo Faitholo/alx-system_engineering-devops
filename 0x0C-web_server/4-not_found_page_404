@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Configure Nginx server to give error 404 page
+apt-get -y update
+apt-get -y install nginx
+# 1 Return a page that prints hello World to the screen
+echo "Hello World" | tee /var/www/html/index.html
+# 2 redirection page
+TEXT="location /redirect_me {\\n return 301 Moved Permanently;\\n}\\n"
+sudo sed -i "42i $TEXT" /etc/nginx/sites-available/default
+# 3 HTTP 404 error page inclu Ceci n'est pas une page
+echo "Ceci n'est pas une page" | tee /var/www/html/404.html
+CUSTOM="error_page 404 /404.html;\nlocation = /404.html {\nroot /var/www/html;\ninternal;\n}"
+sudo sed -i "/server_name _;/a $CUSTOM" /etc/nginx/sites-available/default
+service nginx restart

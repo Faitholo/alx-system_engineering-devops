@@ -18,7 +18,7 @@ then
 events {
 }" > /etc/nginx/nginx.conf
     mkdir -p /var/www/school
-    echo "Hello World" > \
+    echo "Hello World!" > \
 	/var/www/school/index.html
     service nginx start
     if [ $? -ne 0 ]

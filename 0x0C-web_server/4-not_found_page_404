@@ -3,7 +3,7 @@
 apt-get -y update
 apt-get -y install nginx
 # 1 Return a page that prints hello World to the screen
-echo "Hello World" | tee /var/www/html/index.html
+echo "Hello World!" | tee /var/www/html/index.html
 # 2 redirection page
 TEXT="location /redirect_me {\\n return 301 Moved Permanently;\\n}\\n"
 sudo sed -i "42i $TEXT" /etc/nginx/sites-available/default

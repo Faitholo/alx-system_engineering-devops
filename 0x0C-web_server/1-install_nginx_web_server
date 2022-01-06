@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
 #install ngix and have a file that returns the string "Hello World  inside
 
-sudo apt-get update -y && \
-apt-get -y install nginx
+sudo apt-get install -y nginx
 sudo ufw allow 'Nginx HTTP'
 sudo mkdir -p /var/www/html
 sudo chmod -R 755 /var/www
-sudo echo 'Hello World!' > /var/www/html/index.html
+echo 'Hello World!' > /var/www/html/index.html
 if [ "$(pgrep -c nginx)" -le 0 ]; then
 	service nginx start
 else

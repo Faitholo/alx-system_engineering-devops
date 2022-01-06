@@ -17,7 +17,7 @@ new_config=\
         }
         
         if (\$request_filename ~ redirect_me){
-            rewrite ^ 301 Moved Permanently;
+            rewrite ^ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;
         }
 }
 "

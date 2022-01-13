@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#Configure your domain zone so that the subdomain www and display information about subdomains
+
+if [ "$#" = 1 ]
+then
+    subdomains=("www" "lb-01" "web-01" "web-02")
+    for sub_domain in "${subdomains[@]}"
+    do
+	record_type=$(dig $sub_domain.$1 | grep -A1 'ANSWER SECTION' | tail -1 | awk '{print $4}')
+        destination=$(dig $sub_domain.$1 | grep -A1 'ANSWER SECTION' | tail -1 | awk '{print $5}')
+	echo "The subdomain $sub_domain is a $record_type record and points to $destination"
+    done
+elif [ "$#" = 2 ]
+then
+    record_type=$(dig $2.$1 | grep -A1 'ANSWER SECTION' | tail -1 | awk '{print $4}')
+    destination=$(dig $2.$1 | grep -A1 'ANSWER SECTION' | tail -1 | awk '{print $5}')
+    echo "The subdomain $2 is a $record_type record and points to $destination"
+fi

@@ -35,16 +35,11 @@ defaults
 
 frontend my_frontend
         bind *:80
-        bind *:443
-        option tcplog
+        bind *:443 ssl crt /etc/letsencrypt/live/nanodesign.tech/fullchain.pem
         mode http
         default_backend my_backend_1
 
-
 backend my_backend_1
-        mode tcp
         balance roundrobin
-        option ssl-Holberton School-chk
         server 914-web-01 35.196.96.41:80 check
         server 914-web-02 3.234.218.189:80 check
-

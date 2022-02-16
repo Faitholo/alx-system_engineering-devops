@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Function that queries the Reddit API and returns the number of subscribers """
+""" Function that queries the Reddit API """
 import requests
 import sys
 

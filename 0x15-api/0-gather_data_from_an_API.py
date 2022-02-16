@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 '''
-Python script that returns information about a given employee 
-TODO list progress using REST API
+Python script that returns information using REST API
 '''
 import requests
 from sys import argv
